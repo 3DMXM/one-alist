@@ -37,4 +37,15 @@ export default defineNuxtConfig({
         classSuffix: "",
         storageKey: "nuxt-color-mode",
     },
+    app: {
+        head: {
+            script: [
+                {
+                    async: true,
+                    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5978423097771370",
+                    crossorigin: "anonymous",
+                },
+            ],
+        },
+    },
 });
