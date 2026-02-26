@@ -26,7 +26,7 @@ export const useMain = defineStore("main", {
             },
             {
                 title: "赞助",
-                url: "https://cloud.aoe.top/shop",
+                url: "https://sponsor.aoe.top/",
                 icon: "mdi-currency-cny",
                 target: true,
             },
