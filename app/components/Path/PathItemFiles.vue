@@ -57,7 +57,7 @@ const fileInfo = computed(() => {
     // 图片文件
     if (
         ["bmp", "jpg", "jpeg", "png", "gif", "webp", "svg"].includes(
-            suffix || ""
+            suffix || "",
         )
     ) {
         return {
@@ -103,7 +103,7 @@ const fileInfo = computed(() => {
     // 压缩文件
     if (
         ["zip", "rar", "7z", "tar", "gz", "bz2", "iso", "dmg"].includes(
-            suffix || ""
+            suffix || "",
         )
     ) {
         return {
@@ -116,7 +116,7 @@ const fileInfo = computed(() => {
     // 文档文件
     if (
         ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf"].includes(
-            suffix || ""
+            suffix || "",
         )
     ) {
         return {
@@ -298,7 +298,7 @@ export default {
 // Windows 资源管理器风格
 .file-list-item {
     display: grid;
-    grid-template-columns: 24px 1fr 100px 80px 140px 40px;
+    grid-template-columns: 24px 1fr 100px 80px 140px;
     gap: 8px;
     align-items: center;
     padding: 10px 8px;
@@ -332,11 +332,69 @@ export default {
 
     // 响应式
     @media (max-width: 1024px) {
-        grid-template-columns: 32px 24px 1fr auto;
-        .file-type-col,
-        .file-size-col,
-        .file-time-col {
+        grid-template-columns: 24px 1fr 80px 140px;
+        .file-type-col {
             display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 40px 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 4px 12px;
+        padding: 12px 16px;
+
+        .file-icon-wrapper {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            width: 40px;
+            height: 40px;
+            background: rgba(128, 128, 128, 0.1);
+            border-radius: 8px;
+
+            .file-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .loading-spinner {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .file-name-col {
+            grid-column: 2 / 4;
+            grid-row: 1;
+            align-self: end;
+
+            .file-name {
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+
+        .file-type-col {
+            display: none;
+        }
+
+        .file-time-col {
+            grid-column: 2;
+            grid-row: 2;
+            align-self: start;
+            font-size: 12px;
+            color: hsl(var(--muted-foreground));
+            display: block;
+        }
+
+        .file-size-col {
+            grid-column: 3;
+            grid-row: 2;
+            align-self: start;
+            font-size: 12px;
+            color: hsl(var(--muted-foreground));
+            text-align: right;
+            display: block;
         }
     }
 }
@@ -431,6 +489,7 @@ export default {
     overflow: hidden;
 
     .file-name {
+        display: block;
         font-size: 13px;
         font-weight: 400;
         color: hsl(var(--foreground));
