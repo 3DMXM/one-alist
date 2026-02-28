@@ -24,7 +24,7 @@ const setTheme = (theme: string) => {
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" size="icon" class="theme-toggle-btn">
                 <component
-                    :is="currentTheme.icon"
+                    :is="currentTheme?.icon"
                     class="h-5 w-5 transition-transform hover:rotate-12"
                 />
             </Button>

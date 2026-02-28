@@ -41,7 +41,7 @@ watch(
     () => {
         currentPage.value = 1;
     },
-    { deep: true }
+    { deep: true },
 );
 
 watch(
@@ -51,7 +51,7 @@ watch(
     },
     {
         immediate: true,
-    }
+    },
 );
 
 // 页面切换处理
@@ -71,7 +71,7 @@ async function getSiteName() {
         "/api/getSiteName",
         {
             method: "POST",
-        }
+        },
     );
     document.title = `${path.value} - ${data.data}`;
 }

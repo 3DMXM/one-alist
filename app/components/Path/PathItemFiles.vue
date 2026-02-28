@@ -10,14 +10,12 @@ import {
     Archive,
     FileText,
     Code,
-    Download,
-    FolderOpen,
-    MoreVertical,
-    Share2,
-    Trash2,
-    Star,
-    Copy,
-    Eye,
+    Package,
+    AppWindow,
+    Terminal,
+    Smartphone,
+    Disc,
+    Box,
 } from "lucide-vue-next";
 
 const props = defineProps<{
@@ -100,12 +98,31 @@ const fileInfo = computed(() => {
         };
     }
 
-    // 压缩文件
+    // 安装包与系统文件
+    if (["exe", "msi"].includes(suffix || "")) {
+        return { icon: AppWindow, color: "blue", type: "Windows 程序" };
+    }
+    if (["dmg", "pkg"].includes(suffix || "")) {
+        return { icon: Disc, color: "grey", type: "Mac 磁盘映像" };
+    }
+    if (["deb", "rpm", "appimage"].includes(suffix || "")) {
+        return { icon: Box, color: "orange", type: "Linux 程序包" };
+    }
     if (
-        ["zip", "rar", "7z", "tar", "gz", "bz2", "iso", "dmg"].includes(
-            suffix || "",
-        )
+        fileName.endsWith(".tar.gz") ||
+        ["tar", "gz", "tgz"].includes(suffix || "")
     ) {
+        return { icon: Package, color: "orange", type: "压缩包/源码" };
+    }
+    if (["apk"].includes(suffix || "")) {
+        return { icon: Smartphone, color: "green", type: "Android 应用" };
+    }
+    if (["bat", "cmd", "sh", "bin"].includes(suffix || "")) {
+        return { icon: Terminal, color: "grey", type: "脚本/可执行文件" };
+    }
+
+    // 压缩文件
+    if (["zip", "rar", "7z", "bz2", "xz", "iso"].includes(suffix || "")) {
         return {
             icon: Archive,
             color: "orange",
@@ -224,28 +241,6 @@ const formattedSize = computed(() => {
 const formattedTime = computed(() => {
     return main.formatTime(props.item.modified);
 });
-
-// 切换收藏
-const toggleFavorite = (e: Event) => {
-    e.stopPropagation();
-    isFavorite.value = !isFavorite.value;
-};
-
-// 文件操作菜单
-const handleCopy = (e: Event) => {
-    e.stopPropagation();
-    console.log("复制文件:", props.item.name);
-};
-
-const handleShare = (e: Event) => {
-    e.stopPropagation();
-    console.log("分享文件:", props.item.name);
-};
-
-const handleDelete = (e: Event) => {
-    e.stopPropagation();
-    console.log("删除文件:", props.item.name);
-};
 </script>
 <template>
     <div
