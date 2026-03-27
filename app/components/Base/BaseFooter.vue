@@ -34,6 +34,8 @@ const year = new Date().getFullYear();
                 </p>
             </div>
 
+            <BaseFriendlyLinks />
+
             <div class="footer-actions">
                 <TooltipProvider>
                     <Tooltip>
