@@ -11,8 +11,7 @@ const year = new Date().getFullYear();
             <div class="footer-info">
                 <p class="footer-text mb-2">
                     <Heart
-                        class="inline h-4 w-4 text-red-500 animate-pulse mr-1"
-                    />
+                        class="inline h-4 w-4 text-red-500 animate-pulse mr-1" />
                     私有云网盘 @2020-{{ year }}
                 </p>
                 <p class="footer-text text-xs">
@@ -27,8 +26,7 @@ const year = new Date().getFullYear();
                         href="https://beian.miit.gov.cn/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="footer-link ml-2"
-                    >
+                        class="footer-link ml-2">
                         湘ICP备2021011453号-1
                     </a>
                 </p>
@@ -44,13 +42,11 @@ const year = new Date().getFullYear();
                                 variant="ghost"
                                 size="icon"
                                 class="footer-icon-btn"
-                                as-child
-                            >
+                                as-child>
                                 <a
                                     href="https://github.com/3DMXM/one-alist"
                                     target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                    rel="noopener noreferrer">
                                     <Github class="h-5 w-5" />
                                 </a>
                             </Button>
@@ -68,8 +64,7 @@ const year = new Date().getFullYear();
                                 variant="ghost"
                                 size="icon"
                                 class="footer-icon-btn"
-                                as-child
-                            >
+                                as-child>
                                 <a href="mailto:xm@aoe.top">
                                     <Mail class="h-5 w-5" />
                                 </a>
