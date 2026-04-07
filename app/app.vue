@@ -14,7 +14,7 @@ function gtag(...args:any[]) {
     (window as any).dataLayer.push(args);
 }
 gtag("js", new Date()), gtag("config", "G-L04H04RSS7",{
-    "content_group":"Gloss-Mod-Manager"
+    "content_group":"pan/game",
 });
 
 </script>
