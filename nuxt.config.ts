@@ -49,6 +49,17 @@ export default defineNuxtConfig({
                     async: "true",
                     src: "https://www.googletagmanager.com/gtag/js?id=G-L04H04RSS7",
                 },
+                {
+                    textContent: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+                    gtag("js", new Date()), gtag("config", "G-L04H04RSS7",{
+                        "content_group":"pan"
+                    });
+                    `,
+                },
             ],
         },
     },

@@ -8,15 +8,6 @@ onMounted(() => {
         colorMode.preference = "dark";
     }
 });
-
-(window as any).dataLayer = (window as any).dataLayer || [];
-function gtag(...args:any[]) {
-    (window as any).dataLayer.push(args);
-}
-gtag("js", new Date()), gtag("config", "G-L04H04RSS7",{
-    "content_group":"pan/game",
-});
-
 </script>
 
 <template>
